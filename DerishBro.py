@@ -12,4 +12,7 @@ for row in cur.fetchall():
     print row[0]
 db.close()
 
-###################
+################### POST ##############
+import requests
+requests.post("url", data={})
+
