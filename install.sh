@@ -3,3 +3,4 @@ pip3 install --upgrade pandas
 pip3 install --upgrade numpy
 pip3 install --upgrade scipy
 pip3 install --upgrade sklearn
+example
