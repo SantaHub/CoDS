@@ -32,4 +32,4 @@ clf.fit(X[:30000],y[:30000])
 y_pred=clf.predict(X[30000:])
 
 from sklearn.metrics import r2_score
-r2_score(y[30000:],y_pred)
+r2_score(y[30000:],y_pred)  # 82.922984604460659
