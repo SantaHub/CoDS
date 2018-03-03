@@ -9,7 +9,11 @@ sess = requests.Session()
 
 #To get the seraph page. We need the magic number to authenticate. 
 #Without the magic number it wont work
-a= sess.get('http://go.microsoft.com')
+try:
+	a= sess.get('http://go.microsoft.com')
+except:
+	print("Cannot connect to the network. Try again later.")
+	exit(0)
 
 content = str(a.content)
 try:
