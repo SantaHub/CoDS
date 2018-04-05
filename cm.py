@@ -27,3 +27,25 @@ def plot_cm(clf, labels = ['rovnix', 'None', 'conficker', 'murofet', 'ramdo', 't
     pylab.savefig('./ClassifierImages/multi/'+clf['name']+'.png')
     pylab.show()
     
+def plot_clf_cmpr(clf_array,labels = ['rovnix', 'None', 'conficker', 'murofet', 'ramdo', 'tinba']):
+    fig = plt.figure(figsize=(20,10))
+    ax = fig.add_subplot(111)
+    ax.grid(b=False)
+    dga_acc_matrix=[]
+    for clf_pos,clf in enumerate(clf_array):
+        cm  = confusion_matrix(y, clf['y_pred'])
+        percent = (cm*100.0)/np.array(np.matrix(cm.sum(axis=1)).T) 
+        dga_acc_matrix.append([max(x) for x in percent])
+        for dga_pos,percent_array in enumerate(percent):
+            ax.text(dga_pos,clf_pos,max(percent_array),va='center',ha='center',bbox=dict(fc='w',boxstyle='round,pad=1'))
+
+    cax = ax.matshow(dga_acc_matrix, cmap=plt.cm.Blues)
+    pylab.title('Confusion matrix of the classifier : '+ clf['name']+'\n')
+    fig.colorbar(cax)
+    ax.set_yticklabels([' '] + ['GNB','RFC','KNC','LSV'])
+    ax.set_xticklabels([' '] + labels)
+    pylab.xlabel('Predicted')
+    pylab.ylabel('Actual')
+#        pylab.savefig('./ClassifierImages/multi/'+clf['name']+'.png')
+    print(clf['name'])
+    pylab.show()
