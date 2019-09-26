@@ -12,7 +12,7 @@
 - `docker rm CONTAINER_ID` : Removes a container
 - `docker container ps` : Shows running docker containers
 - `docker commit CONTAINER_ID NEW_IMAGE_NAME` : commites the changes made in the container and saves it as new image
-- `docker build -t IMAGE_NAME:TAG /path/to/Dockerfile` : build the docker image with the given image
+- `docker build -t IMAGE_NAME:TAG -f /path/to/Dockerfile .` : build the docker image with the given image
 - `docker tag IMAGE:TAG IMAGE:TAG` : Adds a new tagged image
 - `docker login -u USERNAME -p KEY` : Login to private docker registry
 - `docker push IMAGE_NAME:TAG` : Pushes the image to the logged in registry 
